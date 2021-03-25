@@ -11,7 +11,7 @@ variable "lb_name" {
 
 variable "private_subnet_ids" {
   type        = list(string)
-  description = "Optional; A set of subnet ID's that will be associated with the Farage service. By default the module will use the default vpc's public subnets."
+  description = "Optional; A set of subnet ID's that will be associated with the Farage service. By default the module will use the default vpc's private subnets."
   default     = ["subnet-02bfbf99cdabab086", "subnet-0bcd16c3e147d5c98"]//["subnet-0d5a87b1da974abda", "subnet-0e189fca847b40e55"] //["subnet-02bfbf99cdabab086", "subnet-0bcd16c3e147d5c98"]
 }
 variable "public_subnet_ids" {
