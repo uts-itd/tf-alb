@@ -20,6 +20,12 @@ variable "public_subnet_ids" {
   default     = ["subnet-0b9234f55a91961b6", "subnet-0e68d8c75ef8de658"] // ["subnet-017b0f619d72adf2b", "subnet-0b3f235dfaaefcfa2"] //["subnet-0b9234f55a91961b6", "subnet-0e68d8c75ef8de658"]
 }
 
+variable "tags" {
+  description = "A mapping of tags to assign to the resource"
+  type        = map(string)
+  default     = {}
+}
+
 variable "alb_log_bucket_name" {
   type        = string
   description = "Optional; The S3 bucket name to store the ALB access logs in. Default is null."
@@ -46,4 +52,10 @@ variable "certificate_arn" {
   type        = string
   description = "Optional; A certificate ARN being managed via ACM. If provided we will redirect 80 to 443 and serve on 443/https. Otherwise traffic will be served on 80/http."
   default     = null
+}
+
+variable "load_balancer_type" {
+  description = "The type of load balancer to create. Possible values are application or network."
+  type        = string
+  default     = "application"
 }
