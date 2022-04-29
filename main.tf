@@ -25,7 +25,7 @@ resource "aws_security_group" "alb" {
 resource "aws_lb" "alb" {
   name               = "${var.lb_name}-alb"
   internal           = false
-  load_balancer_type = var.load_balancer_type
+  load_balancer_type = "application"
   security_groups    = [aws_security_group.alb.id]
   subnets            = var.public_subnet_ids != null ? var.public_subnet_ids : data.aws_subnet_ids.default[0].ids
   ip_address_type    = "ipv4"
